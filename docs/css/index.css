@@ -168,3 +168,21 @@ th, td {
 	height: 8px;
 	scale: 2;
 }
+
+.hint {
+	color: #9a9a9a;
+	font-size: 0.8em;
+}
+
+.form_inventory_heading {
+	display: inline-block;
+	margin-top: 0;
+}
+
+.form_inventory_bag_title {
+	text-transform: capitalize;
+}
+
+.form_inventory_generic_enchant:disabled {
+	opacity: 0.5;
+}

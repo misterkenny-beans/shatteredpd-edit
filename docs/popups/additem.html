@@ -2,13 +2,34 @@
 
 <hr>
 
-<table id="popup_additem_list">
-	<tr>
-		<th></th>
-		<th>Name</th>
-	</tr>
-</table>
+<div id="popup_additem_controls">
+	<input type="search" id="popup_additem_search" placeholder="Search items" autocomplete="off">
+	<select id="popup_additem_category"></select>
+	<br>
+	<label>Quantity:</label>
+	<input type="number" class="smaller" id="popup_additem_quantity" min="1" placeholder="auto" title="Leave empty for the game's default (ex: thrown weapons come in sets)">
+	<label>Level:</label>
+	<input type="number" class="smaller" id="popup_additem_level" value="0">
+	<label>Identified:</label>
+	<input type="checkbox" id="popup_additem_identified" checked>
+	<br>
+	<label>Put it in:</label>
+	<select id="popup_additem_destination"></select>
+</div>
 
-<br>
+<div id="popup_additem_list_container">
+	<table id="popup_additem_list">
+		<thead>
+			<tr>
+				<th></th>
+				<th>Name</th>
+				<th>Type</th>
+			</tr>
+		</thead>
+		<tbody></tbody>
+	</table>
+</div>
 
-<button onclick="popup_additem_cancel_onclick()">Cancel</button>
+<p id="popup_additem_status">Click an item to add it. You can add as many as you like.</p>
+
+<button onclick="popup_additem_cancel_onclick()">Done</button>

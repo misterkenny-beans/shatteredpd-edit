@@ -6,6 +6,8 @@ You can find it at [https://infinixi.us/spud/](https://infinixi.us/spud/)!
 
 This is a complete rewrite of the original spud from a few years ago, with many more features, and a much better UI. If you want to access the original for some reason, you can find it [here](https://github.com/Infinixius/spud/tree/main/old).
 
+Supports **Shattered Pixel Dungeon v4.0.2** (game version 922): every item in the game, including the v4.0 vault quest items and redrawn sprites, the new enchantments and curses, all heroes and subclasses, and every equipment slot (including the Champion's second weapon).
+
 ![](/docs/assets/images/screenshot_1.png)
 
 ![](/docs/assets/images/screenshot_2.png)
@@ -50,13 +52,18 @@ For me, setting the game.dat file's permissions to this worked:
 - **Mode** - `rw------- (0600)` (Or set Owner to Read and Write and everything else to none)
 - **SELinux Context** - `u:object_r:app_data_file:s0:c190,c259,c512,c768`
 
-### I don't see an item's properties after adding it and editing its JSON.
+### How do I add items?
 
-If you add an item via the save editor, and then try to edit it's JSON, none of it's specific properties will show up. You need to first add the item, download the save file, run the game, and then re-import it here, so the game can generate the properties for us.
+Press **Add Item**, then search or pick a category and click an item. You can add as many as you like before closing the window.
 
-### After adding an item, it doesn't show up in its container.
+- Added items start out exactly like a newly found one in the game (full wand charges, thrown weapons in a set, etc.), so their JSON already has all of their properties.
+- They go into the bag the game would put them in (ex: wands into the magical holster) if you have one. You can also pick a specific bag, or the backpack.
+- Leave **Quantity** empty to get the game's default amount, ex: thrown weapons come in sets.
+- **Identified** marks the item as identified. For potions, scrolls and rings, that identifies the whole type, just like in the game.
 
-This happens when you, for example, add a wand or throwable item. When you do this it'll show up in the main inventory instead of under the Magical Holster. Don't worry; when you launch the game with the updated save file, the game will sort it for us. This is just a limitation of the save editor.
+### The game won't load my save after I changed the depth.
+
+The game can only load a floor that already exists in your save folder (a `depth*.dat` file). Only change the depth to a floor you've already visited.
 
 ### My save file is corrupted, or an error showed up.
 
@@ -75,4 +82,11 @@ This project is licensed under the [MIT License](https://github.com/Infinixius/s
 
 Pull requests and bug reports are greatly appreciated. Please note some parts of the codebase are particularly ugly and I wouldn't blame you if you went nowhere near them. (The icon generator function and `data.js` updater come to mind.)
 
-If a new update to the game breaks the save editor (items missing, etc), clone the repository into a folder called `shattered-pixel-dungeon` and run `node update_game_data.js`. This should generate an updated `data.js` for the save editor to use. If the script still doesn't work after a new update, open an repository issue. I'll get to it eventually.
+If a new update to the game breaks the save editor (items missing, etc), clone the [game's repository](https://github.com/00-Evan/shattered-pixel-dungeon) into a folder called `shattered-pixel-dungeon` and run:
+
+```sh
+tools/harness/build.sh     # optional, needs a JDK: exports every item exactly as the game creates it
+node update_game_data.js   # generates docs/js/data.js
+```
+
+This should generate an updated `data.js` for the save editor to use. The first step keeps the starting values of newly added items accurate, see [tools/README.md](tools/README.md) for why that matters. If the script still doesn't work after a new update, open an repository issue. I'll get to it eventually.
