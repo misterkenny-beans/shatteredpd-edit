@@ -1,10 +1,8 @@
-# spud
+# spudow
 
 Online save editor for the game [Shattered Pixel Dungeon](https://github.com/00-Evan/shattered-pixel-dungeon), a roguelike dungeon crawler with pixel graphics.
 
-You can find it at [https://infinixi.us/spud/](https://infinixi.us/spud/)!
-
-This is a complete rewrite of the original spud from a few years ago, with many more features, and a much better UI. If you want to access the original for some reason, you can find it [here](https://github.com/Infinixius/spud/tree/main/old).
+You can find it at [https://misterkenny-beans.github.io/shatteredpd-edit/](https://misterkenny-beans.github.io/shatteredpd-edit/)!
 
 Supports **Shattered Pixel Dungeon v4.0.2** (game version 922): every item in the game, including the v4.0 vault quest items and redrawn sprites, the new enchantments and curses, all heroes and subclasses, and every equipment slot (including the Champion's second weapon).
 
@@ -64,15 +62,6 @@ Press **Add Item**, then search or pick a category and click an item. You can ad
 ### The game won't load my save after I changed the depth.
 
 The game can only load a floor that already exists in your save folder (a `depth*.dat` file). Only change the depth to a floor you've already visited.
-
-### My save file is corrupted, or an error showed up.
-
-This editor isn't perfect, and I wouldn't trust a really important save file with it. Always backup your files.
-
-If your save file doesn't work in the game, or the editor, I would appreciate it if you opened an issue or sent me an [e-mail](mailto:spud@infinixi.us) with the following information:
-- Game version (bottom right in the main menu)
-- Original & corrupted save file
-- Screenshot of the log (`Ctrl+Shift+I` -> console)
   
 ## License
 
